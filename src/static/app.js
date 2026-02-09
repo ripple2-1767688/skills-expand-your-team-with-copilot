@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let searchQuery = "";
   let currentDay = "";
   let currentTimeRange = "";
-  let currentDifficulty = "all"; // Default to showing activities without difficulty
+  let currentDifficulty = "none"; // Default to "All" which shows activities without difficulty specified
 
   // Authentication state
   let currentUser = null;
@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Handle difficulty filter
-      if (currentDifficulty) {
+      if (currentDifficulty && currentDifficulty !== "none") {
         queryParams.push(`difficulty=${encodeURIComponent(currentDifficulty)}`);
       }
 
