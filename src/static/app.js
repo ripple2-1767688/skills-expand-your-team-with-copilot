@@ -535,10 +535,17 @@ document.addEventListener("DOMContentLoaded", () => {
       </span>
     `;
 
+    // Helper function to escape HTML
+    const escapeHtml = (text) => {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    };
+
     // Create difficulty tag (only if difficulty is specified)
     const difficultyTagHtml = details.difficulty ? `
-      <span class="difficulty-tag" data-difficulty="${details.difficulty}">
-        ${details.difficulty}
+      <span class="difficulty-tag" data-difficulty="${escapeHtml(details.difficulty)}">
+        ${escapeHtml(details.difficulty)}
       </span>
     ` : '';
 
